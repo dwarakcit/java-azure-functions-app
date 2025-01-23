@@ -15,10 +15,6 @@ import java.util.Optional;
  * Azure Functions with HTTP Trigger.
  */
 public class Function {
-
-    public static void main(String[] args) {
-        System.out.println("Azure Function App is running...");
-    }
     /**
      * This function listens at endpoint "/api/HttpExample". Two ways to invoke it using "curl" command in bash:
      * 1. curl -d "HTTP Body" {your host}/api/HttpExample
@@ -32,7 +28,7 @@ public class Function {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
-        context.getLogger().info("Java HTTP trigger processed a request inside function");
+        context.getLogger().info("Java HTTP trigger processed a request.");
 
         // Parse query parameter
         final String query = request.getQueryParameters().get("name");
